@@ -1,8 +1,9 @@
+require('dotenv').config();
 const { Router } = require('express');
 const router = Router();
 const admin = require('firebase-admin');
 
-var serviceAccount = require("../../contactapp-723e0-firebase-adminsdk-l4s3z-c970771eb1.json");
+var serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
